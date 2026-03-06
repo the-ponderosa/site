@@ -23,7 +23,7 @@ async function main() {
 
   async function cap({ name, url, width, height }) {
     await page.setViewportSize({ width, height });
-    await page.goto(url, { waitUntil: "networkidle", timeout: 45_000 });
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 15_000 });
     await page.waitForTimeout(600);
 
     const outPath = path.join(outDir, name);
