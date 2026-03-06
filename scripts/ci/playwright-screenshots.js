@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+
+/* eslint-disable no-console */
+
+const fs = require('fs');
+const path = require('path');
+
+async function main() {
+  const { chromium } = require('playwright');
+
+  const outDir = process.argv[2];
+  const baseUrl = process.argv[3];
+
+  if (!outDir || !baseUrl) {
+    console.error('Usage: node scripts/ci/playwright-screenshots.js <artifact_dir> <base_url>');
+    process.exit(2);
+  }
+
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+
+  async function cap({ name, url, width, height }) {
+    await page.setViewportSize({ width, height });
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 45_000 });
+    // give fonts/layout a beat
+    await page.waitForTimeout(600);
+    const outPath = path.join(outDir, name);
+    await page.screenshot({ path: outPath, fullPage: true });
+    const bytes = fs.statSync(outPath).size;
+    if (bytes < 10_000) {
+      throw new Error(`Suspiciously small screenshot for ${name} (${bytes} bytes)`);
+    }
+  }
+
+  const shots = [
+    // Desktop
+    { name: 'desktop-home.png', url: `${baseUrl}/`, width: 1440, height: 900 },
+    { name: 'desktop-about.png', url: `${baseUrl}/about`, width: 1440, height: 900 },
+
+    // Mobile
+    { name: 'mobile-home.png', url: `${baseUrl}/`, width: 390, height: 844 },
+    { name: 'mobile-about.png', url: `${baseUrl}/about`, width: 390, height: 844 },
+  ];
+
+  for (const s of shots) {
+    console.log(`[shot] ${s.name}`);
+    await cap(s);
+  }
+
+  await browser.close();
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
