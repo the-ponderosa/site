@@ -5,10 +5,11 @@
 #   bash scripts/ci/generate-build-artifacts.sh <artifact_dir>
 #
 # Produces:
-#   <artifact_dir>/desktop-home.png
-#   <artifact_dir>/mobile-home.png
-#   <artifact_dir>/desktop-about.png
-#   <artifact_dir>/mobile-about.png
+#   <artifact_dir>/screenshots/desktop-home.png
+#   <artifact_dir>/screenshots/mobile-home.png
+#   <artifact_dir>/screenshots/desktop-about.png
+#   <artifact_dir>/screenshots/mobile-about.png
+#   <artifact_dir>/index.html
 #   <artifact_dir>/dev-server.log
 #
 # Notes:
@@ -19,12 +20,15 @@
 set -euo pipefail
 umask 022
 
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+
 ARTIFACT_DIR="${1:?Usage: $0 <artifact_dir>}"
+SCREENSHOT_DIR="$ARTIFACT_DIR/screenshots"
 PORT="15001"
 DEV_SERVER_PID=""
 
-mkdir -p "$ARTIFACT_DIR"
-chmod 755 "$ARTIFACT_DIR" || true
+mkdir -p "$SCREENSHOT_DIR"
+chmod 755 "$ARTIFACT_DIR" "$SCREENSHOT_DIR" || true
 
 cleanup() {
   local exit_code=$?
@@ -73,7 +77,10 @@ for i in $(seq 1 60); do
 done
 
 echo "[ci] Running Playwright screenshot capture…"
-node scripts/ci/playwright-screenshots.js "$ARTIFACT_DIR" "http://localhost:${PORT}"
+node scripts/ci/playwright-screenshots.mjs "$SCREENSHOT_DIR" "http://localhost:${PORT}"
+
+# Write a human-friendly index so artifacts are reviewable without directory browsing.
+cp "${ROOT_DIR}/scripts/ci/_index.html.template" "$ARTIFACT_DIR/index.html"
 
 chmod -R o+rX "$ARTIFACT_DIR" 2>/dev/null || true
 
