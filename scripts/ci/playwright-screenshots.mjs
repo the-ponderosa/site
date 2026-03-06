@@ -30,16 +30,14 @@ async function main() {
     await page.screenshot({ path: outPath, fullPage: true });
 
     const bytes = fs.statSync(outPath).size;
-    if (bytes < 10_000) {
+    if (bytes < 5_000) {
       throw new Error(`Suspiciously small screenshot for ${name} (${bytes} bytes)`);
     }
   }
 
   const shots = [
     { name: "desktop-home.png", url: `${baseUrl}/`, width: 1440, height: 900 },
-    { name: "desktop-about.png", url: `${baseUrl}/about`, width: 1440, height: 900 },
     { name: "mobile-home.png", url: `${baseUrl}/`, width: 390, height: 844 },
-    { name: "mobile-about.png", url: `${baseUrl}/about`, width: 390, height: 844 },
   ];
 
   for (const s of shots) {

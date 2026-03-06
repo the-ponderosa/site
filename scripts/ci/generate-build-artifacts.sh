@@ -7,8 +7,8 @@
 # Produces:
 #   <artifact_dir>/screenshots/desktop-home.png
 #   <artifact_dir>/screenshots/mobile-home.png
-#   <artifact_dir>/screenshots/desktop-about.png
-#   <artifact_dir>/screenshots/mobile-about.png
+
+
 #   <artifact_dir>/index.html
 #   <artifact_dir>/dev-server.log
 #

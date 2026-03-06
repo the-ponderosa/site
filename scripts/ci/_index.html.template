@@ -34,18 +34,8 @@
         </section>
 
         <section class="card">
-          <h2>desktop — about</h2>
-          <a href="screenshots/desktop-about.png"><img src="screenshots/desktop-about.png" alt="desktop about" /></a>
-        </section>
-
-        <section class="card">
           <h2>mobile — home</h2>
           <a href="screenshots/mobile-home.png"><img src="screenshots/mobile-home.png" alt="mobile home" /></a>
-        </section>
-
-        <section class="card">
-          <h2>mobile — about</h2>
-          <a href="screenshots/mobile-about.png"><img src="screenshots/mobile-about.png" alt="mobile about" /></a>
         </section>
       </div>
     </main>
