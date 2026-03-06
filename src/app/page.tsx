@@ -1,10 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0b1220] text-white">
+    <div className="min-h-screen bg-transparent text-white">
       <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
-        <div className="text-sm font-semibold tracking-wide">the-ponderosa</div>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/brand/badge.png"
+            alt="The Ponderosa"
+            width={28}
+            height={28}
+            className="h-7 w-7 rounded-full ring-1 ring-[#c9a84c]/35"
+            priority
+          />
+          <div className="text-sm font-semibold tracking-wide">the-ponderosa</div>
+        </div>
         <nav className="flex items-center gap-4 text-sm text-white/80">
           <Link className="hover:text-white" href="/about">
             About
@@ -26,13 +37,13 @@ export default function Home() {
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
-            className="inline-flex h-11 items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-[#0b1220]"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-[#c9a84c] px-5 text-sm font-semibold text-[#1a0e2e] hover:bg-[#e8c34a]"
             href="mailto:hello@the-ponderosa.ai"
           >
             Get in touch
           </a>
           <Link
-            className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-5 text-sm font-semibold text-white/90 hover:border-white/40"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-[#c9a84c]/30 px-5 text-sm font-semibold text-white/90 hover:border-[#c9a84c]/55"
             href="/about"
           >
             Read more
@@ -40,19 +51,19 @@ export default function Home() {
         </div>
 
         <section className="mt-16 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <div className="rounded-2xl border border-[#c9a84c]/15 bg-white/[0.03] p-5">
             <div className="text-sm font-semibold">Lean</div>
             <p className="mt-2 text-sm text-white/70">
               Minimal process. High output. Clear ownership.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <div className="rounded-2xl border border-[#c9a84c]/15 bg-white/[0.03] p-5">
             <div className="text-sm font-semibold">Evidence-driven</div>
             <p className="mt-2 text-sm text-white/70">
               We instrument, test, and iterate. Receipts over vibes.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <div className="rounded-2xl border border-[#c9a84c]/15 bg-white/[0.03] p-5">
             <div className="text-sm font-semibold">Human-facing</div>
             <p className="mt-2 text-sm text-white/70">
               UX and polish matter. AI that earns trust.
@@ -61,8 +72,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 py-8">
-        <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="border-t border-[#c9a84c]/15 py-8">
+        <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between">
           <div>© {new Date().getFullYear()} The Ponderosa</div>
           <div>
             <a className="hover:text-white" href="mailto:hello@the-ponderosa.ai">

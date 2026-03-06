@@ -10,7 +10,8 @@ body {
 }
 
 body {
-  background: #0b1220;
+  /* Badge palette (v0): deep purple sky + warm gold accents */
+  background: #1a0e2e;
   color: #ffffff;
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
