@@ -31,7 +31,7 @@ export default function Home() {
           The Ponderosa
         </h1>
         <p className="mt-5 max-w-2xl text-pretty text-lg text-white/80">
-          A small team building practical AI tools and workflows. We ship fast, measure results,
+          A small lab building AI infrastructure from scratch. We run tight experiments,
           and iterate.
         </p>
 
@@ -42,34 +42,10 @@ export default function Home() {
           >
             Get in touch
           </a>
-          <Link
-            className="inline-flex h-11 items-center justify-center rounded-full border border-[#c9a84c]/30 px-5 text-sm font-semibold text-white/90 hover:border-[#c9a84c]/55"
-            href="/about"
-          >
-            Read more
-          </Link>
+
         </div>
 
-        <section className="mt-16 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-2xl border border-[#c9a84c]/15 bg-white/[0.03] p-5">
-            <div className="text-sm font-semibold">Lean</div>
-            <p className="mt-2 text-sm text-white/70">
-              Minimal process. High output. Clear ownership.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-[#c9a84c]/15 bg-white/[0.03] p-5">
-            <div className="text-sm font-semibold">Evidence-driven</div>
-            <p className="mt-2 text-sm text-white/70">
-              We instrument, test, and iterate. Receipts over vibes.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-[#c9a84c]/15 bg-white/[0.03] p-5">
-            <div className="text-sm font-semibold">Human-facing</div>
-            <p className="mt-2 text-sm text-white/70">
-              UX and polish matter. AI that earns trust.
-            </p>
-          </div>
-        </section>
+
       </main>
 
       <footer className="border-t border-[#c9a84c]/15 py-8">
