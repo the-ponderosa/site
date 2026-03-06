@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -17,9 +16,6 @@ export default function Home() {
           <div className="text-sm font-semibold tracking-wide">the-ponderosa</div>
         </div>
         <nav className="flex items-center gap-4 text-sm text-white/80">
-          <Link className="hover:text-white" href="/about">
-            About
-          </Link>
           <a className="hover:text-white" href="mailto:hello@the-ponderosa.ai">
             Contact
           </a>
@@ -42,10 +38,7 @@ export default function Home() {
           >
             Get in touch
           </a>
-
         </div>
-
-
       </main>
 
       <footer className="border-t border-[#c9a84c]/15 py-8">
