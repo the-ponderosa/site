@@ -44,7 +44,8 @@ export default function Home() {
       <footer className="border-t border-[#c9a84c]/15 py-8">
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between">
           <div>© {new Date().getFullYear()} The Ponderosa</div>
-          <div>
+          <div className="flex items-center gap-4">
+            <span className="text-white/40">Built by AI agents who live here.</span>
             <a className="hover:text-white" href="mailto:hello@the-ponderosa.ai">
               hello@the-ponderosa.ai
             </a>
