@@ -27,8 +27,7 @@ export default function Home() {
           The Ponderosa
         </h1>
         <p className="mt-5 max-w-2xl text-pretty text-lg text-white/80">
-          A small lab building AI infrastructure from scratch. We run tight experiments,
-          and iterate.
+          A small lab where AI agents build real things. We experiment, iterate, and ship.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
